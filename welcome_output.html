@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner — Student Goals &amp; Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+
+    <div class="app-container">
+
+        <!-- ========================================================
+             LEFT SIDEBAR
+             ======================================================== -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">SP</div>
+                <div class="brand-info">
+                    <span class="brand-title">Study Planner</span>
+                    <span class="brand-subtitle">Student Productivity</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Workspace</div>
+                
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    <span>Tasks</span>
+                    <span class="nav-badge" id="sidebarTaskBadge">3</span>
+                </a>
+
+                <a href="schedule.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Calendar</span>
+                </a>
+
+                <a href="loops_arrays_output.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Subjects</span>
+                </a>
+
+                <a href="study-plan.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <span>Study Plan</span>
+                </a>
+
+                <a href="index.html#quick-notes-section" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Notes</span>
+                </a>
+
+                <a href="goals.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                    <span>Goals</span>
+                </a>
+
+                <div class="nav-section-label" style="margin-top: 12px;">Account &amp; Tools</div>
+
+                <a href="register.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>Setup Profile</span>
+                </a>
+
+                <a href="study-tools.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span>Marks Sorter</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="register.html" class="sidebar-user-pill">
+                    <div class="user-avatar-sm" id="sidebarAvatar">--</div>
+                    <div class="user-pill-text">
+                        <div class="user-pill-name" id="sidebarUserName">Student</div>
+                        <div class="user-pill-sub" id="sidebarUserSub">Student Profile</div>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ========================================================
+             MAIN WORKSPACE
+             ======================================================== -->
+        <main class="app-main">
+            <!-- Topbar -->
+            <header class="app-topbar">
+                <div class="topbar-left">
+                    <button class="sidebar-toggle-btn" onclick="toggleMobileSidebar()" aria-label="Toggle Navigation">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div class="topbar-search">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" placeholder="Search goals...">
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="date-pill">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Monday, 28 Sep 2026</span>
+                    </div>
+                    <a href="register.html" class="topbar-profile">
+                        <div class="avatar-topbar" id="topbarAvatar">--</div>
+                        <span class="topbar-name" id="topbarUserName">Student</span>
+                    </a>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="container" style="max-width: 900px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+                        <div>
+                            <h2>Academic Goals &amp; Student Profile</h2>
+                            <p>Track your semester performance, coding milestones, and daily study habits.</p>
+                        </div>
+                        <span style="font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-full); background: var(--sage-bg); color: var(--sage-text); border: 1px solid var(--sage-border);">
+                            5 Active Goals
+                        </span>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div class="timer-mode-selector" style="margin-top: 14px; margin-bottom: 22px;">
+                        <button class="timer-mode-btn active" onclick="filterGoalsTab(this, 'active')">Active (5)</button>
+                        <button class="timer-mode-btn" onclick="filterGoalsTab(this, 'completed')">Completed (1)</button>
+                        <button class="timer-mode-btn" onclick="filterGoalsTab(this, 'upcoming')">Upcoming (2)</button>
+                    </div>
+
+                    <!-- ACTIVE GOALS SECTION -->
+                    <div id="goalsActiveContainer" style="display: flex; flex-direction: column; gap: 14px;">
+
+                        <!-- Goal 1 -->
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">1. Improve DSA Problem Solving</h3>
+                                        <span class="category-badge dsa">DSA &amp; Algorithms</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        <b>Target:</b> Complete 150 DSA problems &nbsp;•&nbsp; <b>Current:</b> 102 / 150
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--lavender-text);">68%</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Deadline: 30 Nov 2026</div>
+                                </div>
+                            </div>
+                            <div class="progress-track-thin" style="height: 6px; margin-top: 8px;">
+                                <div class="progress-bar-thin lavender" style="width: 68%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Goal 2 -->
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">2. Maintain Semester Performance</h3>
+                                        <span class="category-badge webtech">Academics</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        <b>Target:</b> Maintain 8.5+ CGPA &nbsp;•&nbsp; <b>Current:</b> On track (SGPA 8.7 target)
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--sage-text);">82%</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Deadline: End of semester</div>
+                                </div>
+                            </div>
+                            <div class="progress-track-thin" style="height: 6px; margin-top: 8px;">
+                                <div class="progress-bar-thin sage" style="width: 82%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Goal 3 -->
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">3. Complete Java Backend Roadmap</h3>
+                                        <span class="category-badge oop">Backend</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        <b>Target:</b> Java + Spring Boot + REST APIs &nbsp;•&nbsp; <b>Current:</b> Java + Spring Boot in progress
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--blue-text);">55%</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Deadline: 15 Dec 2026</div>
+                                </div>
+                            </div>
+                            <div class="progress-track-thin" style="height: 6px; margin-top: 8px;">
+                                <div class="progress-bar-thin blue" style="width: 55%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Goal 4 -->
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">4. Complete Major Project</h3>
+                                        <span class="category-badge project">Project Work</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        <b>Target:</b> Finish Study Planner project &nbsp;•&nbsp; <b>Current:</b> UI + core functionality completed
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--amber-text);">45%</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Deadline: 30 Nov 2026</div>
+                                </div>
+                            </div>
+                            <div class="progress-track-thin" style="height: 6px; margin-top: 8px;">
+                                <div class="progress-bar-thin amber" style="width: 45%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Goal 5 -->
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">5. Build Consistent Study Habit</h3>
+                                        <span class="category-badge health">Habit &amp; Focus</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        <b>Target:</b> 3+ hours focused study/day &nbsp;•&nbsp; <b>Current:</b> 4h 20m average this week
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--sage-text);">72%</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Deadline: Ongoing</div>
+                                </div>
+                            </div>
+                            <div class="progress-track-thin" style="height: 6px; margin-top: 8px;">
+                                <div class="progress-bar-thin sage" style="width: 72%;"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- COMPLETED GOALS SECTION -->
+                    <div id="goalsCompletedContainer" style="display: none; flex-direction: column; gap: 14px;">
+                        <div class="section-frame" style="padding: 16px 20px; background-color: var(--sage-bg); border-color: var(--sage-border);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">Finish Java OOP Fundamentals</h3>
+                                        <span class="category-badge project" style="background: #ffffff;">Completed</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        Class hierarchies, interfaces, abstract classes, collections framework &amp; exceptions.
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 14px; font-weight: 700; color: var(--sage-text);">100%</span>
+                                    <div style="font-size: 11.5px; color: var(--sage-text); margin-top: 2px;">Finished in Sep</div>
+                                </div>
+                            </div>
+                            <div class="progress-track-thin" style="height: 6px; margin-top: 8px; background: rgba(255, 255, 255, 0.6);">
+                                <div class="progress-bar-thin sage" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UPCOMING GOALS SECTION -->
+                    <div id="goalsUpcomingContainer" style="display: none; flex-direction: column; gap: 14px;">
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">AMCAT Full Placement Mock Certification</h3>
+                                        <span class="category-badge placement">Campus Placement</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        Full-length adaptive simulated exam including quantitative, logical reasoning, and automata fix.
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">Upcoming</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Starts: 10 Oct 2026</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--text-primary);">Spring Microservices &amp; Docker Deployment</h3>
+                                        <span class="category-badge oop">Advanced Backend</span>
+                                    </div>
+                                    <div style="margin-top: 6px; font-size: 12.5px; color: var(--text-secondary);">
+                                        Service discovery with Eureka, API Gateway, and containerization.
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">Upcoming</span>
+                                    <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">Starts: Jan 2027</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px; display: flex; gap: 10px;">
+                        <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+                        <a href="study-plan.html" class="btn">View Study Plan →</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="services/apiClient.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function filterGoalsTab(btn, mode) {
+            document.querySelectorAll('.timer-mode-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+
+            var activeEl = document.getElementById('goalsActiveContainer');
+            var compEl = document.getElementById('goalsCompletedContainer');
+            var upEl = document.getElementById('goalsUpcomingContainer');
+
+            activeEl.style.display = (mode === 'active') ? 'flex' : 'none';
+            compEl.style.display = (mode === 'completed') ? 'flex' : 'none';
+            upEl.style.display = (mode === 'upcoming') ? 'flex' : 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner — Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+
+    <div class="app-container">
+
+        <!-- ========================================================
+             LEFT SIDEBAR
+             ======================================================== -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <div class="brand-icon">SP</div>
+                <div class="brand-info">
+                    <span class="brand-title">Study Planner</span>
+                    <span class="brand-subtitle">Student Productivity</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Workspace</div>
+                
+                <a href="index.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    <span>Tasks</span>
+                    <span class="nav-badge" id="sidebarTaskBadge">3</span>
+                </a>
+
+                <a href="schedule.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Calendar</span>
+                </a>
+
+                <a href="loops_arrays_output.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Subjects</span>
+                </a>
+
+                <a href="study-plan.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <span>Study Plan</span>
+                </a>
+
+                <a href="#quick-notes-section" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Notes</span>
+                </a>
+
+                <a href="goals.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                    <span>Goals</span>
+                </a>
+
+                <div class="nav-section-label" style="margin-top: 12px;">Account &amp; Tools</div>
+
+                <a href="register.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>Setup Profile</span>
+                </a>
+
+                <a href="study-tools.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <span>Marks Sorter</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="register.html" class="sidebar-user-pill">
+                    <div class="user-avatar-sm">--</div>
+                    <div class="user-pill-text">
+                        <div class="user-pill-name">Student</div>
+                        <div class="user-pill-sub">Student Profile</div>
+                    </div>
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="var(--text-muted)" stroke-width="1.8" fill="none"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ========================================================
+             MAIN CONTENT
+             ======================================================== -->
+        <main class="app-main">
+
+            <!-- Topbar -->
+            <header class="app-topbar">
+                <div class="topbar-left">
+                    <button class="sidebar-toggle-btn" onclick="toggleMobileSidebar()" aria-label="Toggle Navigation">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+
+                    <div class="topbar-search">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="globalSearchInput" placeholder="Search tasks, subjects, notes...">
+                        <span class="search-shortcut">Ctrl K</span>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="date-pill">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Monday, 28 Sep 2026</span>
+                    </div>
+
+                    <a href="schedule.html" class="topbar-btn" title="Notifications">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        <span class="unread-dot"></span>
+                    </a>
+
+                    <a href="register.html" class="topbar-profile" title="View Profile">
+                        <div class="avatar-topbar">--</div>
+                        <span class="topbar-name">Student</span>
+                    </a>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- ========================================================
+                     PERSONALIZED GREETING AREA
+                     ======================================================== -->
+                <section class="greeting-section">
+                    <div class="greeting-text-wrap">
+                        <div class="greeting-kicker">
+                            <span class="greeting-kicker-dot"></span>
+                            Academic Session 2026
+                        </div>
+                        <h1 class="greeting-title">Welcome,<br><span class="user-name-display">Student</span></h1>
+                        <p class="greeting-subtitle">Consistent effort today, better tomorrow.</p>
+
+                        <div class="greeting-pills">
+                            <span class="pill-item pill-semester user-pill-sub">Student Profile</span>
+                            <span class="pill-item pill-focus" id="greetingNextSlot">Organized Study Routine</span>
+                            <span class="pill-item pill-notice" id="greetingStatusNotice">Track Milestones Daily</span>
+                        </div>
+                    </div>
+
+                    <div class="greeting-visual">
+                        <img src="images/study-desk.jpg" alt="Study Desk Editorial Still">
+                        <div class="greeting-badge">
+                            <span>Focus Mode Active</span>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================================
+                     1. TODAY'S OVERVIEW (Stat blocks)
+                     ======================================================== -->
+                <section class="overview-grid">
+                    <!-- Stat 1: Tasks Completed -->
+                    <div class="stat-block">
+                        <div class="stat-header">
+                            <span class="stat-label">Tasks Completed</span>
+                            <div class="stat-icon sage">
+                                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="statCompletedCount">0 / 0</div>
+                        <div>
+                            <div class="stat-meta">
+                                <span class="tag-positive" id="dashTaskCounter">0 of 0 done</span>
+                            </div>
+                            <div class="micro-progress-track">
+                                <div class="micro-progress-fill sage" id="statCompletedProgress" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2: Study Time -->
+                    <div class="stat-block">
+                        <div class="stat-header">
+                            <span class="stat-label">Study Time</span>
+                            <div class="stat-icon lavender">
+                                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value">0h 00m</div>
+                        <div>
+                            <div class="stat-meta">
+                                <span>Goal: 0h 00m</span>
+                                <span class="tag-positive">• 0m today</span>
+                            </div>
+                            <div class="micro-progress-track">
+                                <div class="micro-progress-fill lavender" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3: Subjects Studied -->
+                    <div class="stat-block">
+                        <div class="stat-header">
+                            <span class="stat-label">Subjects Studied</span>
+                            <div class="stat-icon blue">
+                                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value">0</div>
+                        <div class="stat-meta">
+                            <span>No subjects yet</span>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4: Weekly Progress -->
+                    <div class="stat-block">
+                        <div class="stat-header">
+                            <span class="stat-label">Weekly Progress</span>
+                            <div class="stat-icon amber">
+                                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="stat-value">0%</div>
+                        <div class="stat-meta">
+                            <span>Target: 80% weekly</span>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================================
+                     MAIN WORKSPACE (2-COLUMN GRID)
+                     ======================================================== -->
+                <div class="dashboard-columns">
+
+                    <!-- LEFT COLUMN (Tasks & Weekly Calendar) -->
+                    <div class="col-main">
+
+                        <!-- 2. TODAY'S TASKS -->
+                        <div class="section-frame">
+                            <div class="section-header">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">Today's Tasks</h2>
+                                </div>
+                                <a href="tasks.html" class="section-action">View All Tasks →</a>
+                            </div>
+
+                            <!-- Populated dynamically via script.js from shared localStorage -->
+                            <div class="task-list-clean" id="dashTaskList"></div>
+
+                            <!-- Add Task Inline Row -->
+                            <div class="add-task-row">
+                                <input type="text" class="add-task-input" id="dashNewTaskInput" placeholder="+ Add a new task...">
+                                <select class="add-task-select" id="dashNewTaskCategory">
+                                    <option value="dsa">DSA</option>
+                                    <option value="webtech">Web Tech</option>
+                                    <option value="project">Project</option>
+                                    <option value="placement">Placement</option>
+                                    <option value="health">Health</option>
+                                </select>
+                                <button class="btn-add-task" onclick="addDashboardTask()">Add Task</button>
+                            </div>
+                        </div>
+
+
+                        <!-- 3. STUDY CALENDAR / WEEKLY PLAN -->
+                        <div class="section-frame">
+                            <div class="section-header">
+                                <div class="section-title-wrap">
+                                    <h2 class="section-title">Study Calendar &amp; Weekly Plan</h2>
+                                    <span class="section-counter">Week 6</span>
+                                </div>
+                                <a href="study-plan.html" class="section-action">Full Study Plan →</a>
+                            </div>
+
+                            <!-- Day Tabs Monday to Sunday -->
+                            <div class="week-days-strip">
+                                <div class="day-tab active" onclick="selectDayTab(this, 'mon')">
+                                    <div class="day-name">Mon</div>
+                                    <div class="day-num">28</div>
+                                </div>
+                                <div class="day-tab" onclick="selectDayTab(this, 'tue')">
+                                    <div class="day-name">Tue</div>
+                                    <div class="day-num">29</div>
+                                </div>
+                                <div class="day-tab" onclick="selectDayTab(this, 'wed')">
+                                    <div class="day-name">Wed</div>
+                                    <div class="day-num">30</div>
+                                </div>
+                                <div class="day-tab" onclick="selectDayTab(this, 'thu')">
+                                    <div class="day-name">Thu</div>
+                                    <div class="day-num">01</div>
+                                </div>
+                                <div class="day-tab" onclick="selectDayTab(this, 'fri')">
+                                    <div class="day-name">Fri</div>
+                                    <div class="day-num">02</div>
+                                </div>
+                                <div class="day-tab" onclick="selectDayTab(this, 'sat')">
+                                    <div class="day-name">Sat</div>
+                                    <div class="day-num">03</div>
+                                </div>
+                                <div class="day-tab" onclick="selectDayTab(this, 'sun')">
+                                    <div class="day-name">Sun</div>
+                                    <div class="day-num">04</div>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Slots -->
+                            <div class="schedule-slots" id="scheduleSlotsContainer">
+                                <div style="color: var(--text-muted); font-size: 13px; padding: 16px; text-align: center;">No scheduled slots for this day. Free study or rest.</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT COLUMN (Pomodoro Timer, Subject Progress, Deadlines, Quick Notes) -->
+                    <div class="col-side">
+
+                        <!-- 4. FOCUS TIMER (Pomodoro Widget) -->
+                        <div class="section-frame timer-card">
+                            <div class="section-header" style="justify-content: center; margin-bottom: 12px; border-bottom: none; padding-bottom: 0;">
+                                <h2 class="section-title">Focus Timer</h2>
+                            </div>
+
+                            <div class="timer-mode-selector">
+                                <button class="timer-mode-btn active" data-mode="focus" onclick="setTimerMode('focus')">Focus</button>
+                                <button class="timer-mode-btn" data-mode="short" onclick="setTimerMode('short')">Short Break</button>
+                                <button class="timer-mode-btn" data-mode="long" onclick="setTimerMode('long')">Long Break</button>
+                            </div>
+
+                            <div class="timer-ring-container">
+                                <svg class="timer-svg" viewBox="0 0 100 100">
+                                    <circle class="timer-bg-circle" cx="50" cy="50" r="45"></circle>
+                                    <circle class="timer-progress-circle" id="timerCircleProgress" cx="50" cy="50" r="45"
+                                        stroke-dasharray="282.74" stroke-dashoffset="0"></circle>
+                                </svg>
+                                <div class="timer-display-inner">
+                                    <span class="timer-time" id="timerDisplayTime">25:00</span>
+                                    <span class="timer-label" id="timerModeLabel">Focus</span>
+                                </div>
+                            </div>
+
+                            <div class="timer-controls">
+                                <button class="btn-timer-primary" id="timerToggleBtn" onclick="toggleTimer()">Start</button>
+                                <button class="btn-timer-secondary" onclick="resetTimer()">Reset</button>
+                            </div>
+                        </div>
+
+
+                        <!-- 5. SUBJECT PROGRESS -->
+                        <div class="section-frame">
+                            <div class="section-header">
+                                <h2 class="section-title">Subject Progress</h2>
+                                <a href="loops_arrays_output.html" class="section-action">All Subjects →</a>
+                            </div>
+
+                            <div class="subject-progress-list">
+                                <div style="color: var(--text-muted); font-size: 13px; padding: 16px; text-align: center;">No subjects added yet. Add your subjects to track progress.</div>
+                            </div>
+                        </div>
+
+
+                        <!-- 6. UPCOMING DEADLINES -->
+                        <div class="section-frame">
+                            <div class="section-header">
+                                <h2 class="section-title">Upcoming Deadlines</h2>
+                                <span class="section-counter">Active</span>
+                            </div>
+
+                            <div class="deadline-list">
+                                <div style="color: var(--text-muted); font-size: 13px; padding: 16px; text-align: center;">No upcoming deadlines yet. Add tasks or goals with due dates.</div>
+                            </div>
+                        </div>
+
+
+                        <!-- 7. QUICK NOTES -->
+                        <div class="section-frame" id="quick-notes-section">
+                            <div class="section-header">
+                                <h2 class="section-title">Quick Notes</h2>
+                                <span class="section-counter">2 memos</span>
+                            </div>
+
+                            <div class="notes-container" id="quickNotesList"></div>
+
+                            <div class="quick-note-add-wrap">
+                                <input type="text" id="quickNoteInput" class="quick-note-input" placeholder="Type a note &amp; press Enter...">
+                                <button class="btn-note-add" onclick="addQuickNote()">Add</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="services/apiClient.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="services/taskService.js"></script>
+    <script src="services/subjectService.js"></script>
+    <script src="services/goalService.js"></script>
+    <script src="services/noteService.js"></script>
+    <script src="services/studyPlanService.js"></script>
+    <script src="services/sessionService.js"></script>
+    <script src="services/dashboardService.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
