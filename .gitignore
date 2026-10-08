@@ -1,6 +1,78 @@
+# =============================================================================
+# Dependencies
+# =============================================================================
 node_modules/
+jspm_packages/
+
+# =============================================================================
+# Environment & Secrets (NEVER commit live secrets or keys)
+# =============================================================================
 .env
 .env.*
 !.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =============================================================================
+# Logs & Process Output
+# =============================================================================
+logs/
+*.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =============================================================================
+# Operating System Files
+# =============================================================================
+# macOS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# Linux
+*~
+
+# =============================================================================
+# IDEs and Code Editors
+# =============================================================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+
+# =============================================================================
+# Temporary, Cache & Coverage Files
+# =============================================================================
+.cache/
+.parcel-cache/
+tmp/
+temp/
+*.tmp
+.temp/
+coverage/
+.nyc_output/
+
+# =============================================================================
+# Project Documentation & Word Documents (Local Notes)
+# =============================================================================
+docs/
+*.docx
+convert_md_to_docx.py

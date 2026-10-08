@@ -30,10 +30,10 @@ PROJECT STRUCTURE & PAGES
                           filter, dynamic student switcher, shared storage).
 - schedule.html         : Weekly Study Timetable & revision slots with study tips.
 - register.html         : Student Profile & Semester Preference setup form.
-- study-tools.html      : Priority & Marks Sorter for semester exams.
+- feedback.html         : Student Feedback & suggestion reporting system.
 - style.css             : Comprehensive design system & responsive styling.
 - script.js             : Client-side JavaScript logic for tasks, timer,
-                          calendar tabs, quick notes, and marks sorter.
+                          calendar tabs, and quick notes.
 - welcome.php           : Dynamic student profile rendered via PHP variables.
 - welcome_output.html   : Static preview of the profile dashboard & goals.
 - loops-arrays.php      : Dynamic subjects, goals & target marks via PHP.

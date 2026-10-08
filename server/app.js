@@ -14,6 +14,7 @@ const noteRoutes = require('./routes/noteRoutes');
 const studyPlanRoutes = require('./routes/studyPlanRoutes');
 const sessionRoutes = require('./routes/sessionRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.get('/subjects', (req, res) => res.sendFile(path.join(publicDir, 'loops_arra
 app.get('/login', (req, res) => res.sendFile(path.join(publicDir, 'login.html')));
 app.get('/register', (req, res) => res.sendFile(path.join(publicDir, 'register.html')));
 app.get('/settings', (req, res) => res.sendFile(path.join(publicDir, 'register.html')));
+app.get('/feedback', (req, res) => res.sendFile(path.join(publicDir, 'feedback.html')));
 
 // API Endpoints
 app.use('/api/auth', authRoutes);
@@ -50,6 +52,7 @@ app.use('/api/notes', noteRoutes);
 app.use('/api/study-plan', studyPlanRoutes);
 app.use('/api/study-sessions', sessionRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

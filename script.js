@@ -759,59 +759,8 @@ function closeMobileSidebar() {
     }
 }
 
-
 // ========================================================
-// 8. ACADEMIC MARKS SORTER (UTILITY)
-// ========================================================
-function sortStudyMarks() {
-    var inputString = document.getElementById("marksInput").value.trim();
-    var resultBox = document.getElementById("sortResultBox");
-    var errorBox = document.getElementById("sortErrorBox");
-
-    if (!resultBox || !errorBox) return;
-
-    resultBox.style.display = "none";
-    errorBox.style.display = "none";
-
-    if (inputString === "") {
-        errorBox.textContent = "Error: Please enter at least one integer number.";
-        errorBox.style.display = "block";
-        return;
-    }
-
-    var tokens = inputString.split(",");
-    var numbers = [];
-
-    for (var i = 0; i < tokens.length; i++) {
-        var trimmed = tokens[i].trim();
-        if (trimmed === "") continue;
-
-        var num = Number(trimmed);
-        if (isNaN(num) || !Number.isInteger(num)) {
-            errorBox.textContent = "Error: '" + trimmed + "' is not a valid integer. Enter integers only.";
-            errorBox.style.display = "block";
-            return;
-        }
-        numbers.push(num);
-    }
-
-    if (numbers.length === 0) {
-        errorBox.textContent = "Error: No numbers found to sort.";
-        errorBox.style.display = "block";
-        return;
-    }
-
-    var original = numbers.slice();
-    numbers.sort(function(a, b) { return b - a; });
-
-    document.getElementById("originalMarksDisplay").textContent = original.join(", ");
-    document.getElementById("sortedMarksDisplay").textContent = numbers.join(", ");
-    resultBox.style.display = "block";
-}
-
-
-// ========================================================
-// 9. HELPERS & STARTUP
+// 8. HELPERS & STARTUP
 // ========================================================
 function escapeHtml(string) {
     if (string === null || string === undefined) return "";

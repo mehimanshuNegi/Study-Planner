@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback — Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- ========================================================
+             COLLAPSIBLE SIDEBAR
+             ======================================================== -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <div class="brand-text">
+                        <div class="brand-title">Study Planner</div>
+                        <div class="brand-subtitle">Academic Suite</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Core Modules</div>
+
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    <span>Tasks</span>
+                </a>
+
+                <a href="schedule.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Timetable</span>
+                </a>
+
+                <a href="loops_arrays_output.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>Subjects</span>
+                </a>
+
+                <a href="study-plan.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <span>Study Plan</span>
+                </a>
+
+                <a href="index.html#quick-notes-section" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Notes</span>
+                </a>
+
+                <a href="goals.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+                    <span>Goals</span>
+                </a>
+
+                <div class="nav-section-label" style="margin-top: 12px;">Account &amp; Support</div>
+
+                <a href="register.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>Setup Profile</span>
+                </a>
+
+                <a href="feedback.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span>Feedback</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="register.html" class="sidebar-user-pill">
+                    <div class="user-avatar-sm" id="sidebarAvatar">--</div>
+                    <div class="user-pill-text">
+                        <div class="user-pill-name" id="sidebarUserName">Student</div>
+                        <div class="user-pill-sub" id="sidebarUserSub">Student Profile</div>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ========================================================
+             MAIN WORKSPACE
+             ======================================================== -->
+        <main class="app-main">
+            <!-- Topbar -->
+            <header class="app-topbar">
+                <div class="topbar-left">
+                    <button class="sidebar-toggle-btn" onclick="toggleMobileSidebar()" aria-label="Toggle Navigation">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div class="topbar-search">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" placeholder="Search study planner...">
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="date-pill">
+                        <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Monday, 28 Sep 2026</span>
+                    </div>
+                    <a href="register.html" class="topbar-profile">
+                        <div class="avatar-topbar" id="topbarAvatar">--</div>
+                        <span class="topbar-name" id="topbarUserName">Student</span>
+                    </a>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="container" style="max-width: 860px;">
+                    <h2>Feedback</h2>
+                    <p>Help us improve Study Planner. Share your suggestions, report problems, or propose new features.</p>
+
+                    <!-- Feedback Submission Card -->
+                    <div class="section-frame" style="padding: 24px; margin-top: 18px;">
+                        <h3 style="margin-top: 0; font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">
+                            Submit Your Feedback
+                        </h3>
+
+                        <!-- Success / Error Message Banner -->
+                        <div id="feedbackAlert" style="display: none; padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 13.5px; font-weight: 500;"></div>
+
+                        <form id="feedbackForm" onsubmit="handleFeedbackSubmit(event)">
+                            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px;">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label for="feedbackType">Feedback Type *</label>
+                                    <select id="feedbackType" required style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--bg-canvas); color: var(--text-primary); font-size: 13.5px; outline: none;">
+                                        <option value="Suggestion">Suggestion</option>
+                                        <option value="Bug / Issue">Bug / Issue</option>
+                                        <option value="Feature Request">Feature Request</option>
+                                        <option value="General Feedback">General Feedback</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label for="feedbackRating">Experience Rating (Optional)</label>
+                                    <select id="feedbackRating" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--bg-canvas); color: var(--text-primary); font-size: 13.5px; outline: none;">
+                                        <option value="">No rating</option>
+                                        <option value="5">⭐⭐⭐⭐⭐ 5 - Excellent</option>
+                                        <option value="4">⭐⭐⭐⭐ 4 - Good</option>
+                                        <option value="3">⭐⭐⭐ 3 - Average</option>
+                                        <option value="2">⭐⭐ 2 - Needs Improvement</option>
+                                        <option value="1">⭐ 1 - Poor</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 14px;">
+                                <label for="feedbackTitle">Subject / Title *</label>
+                                <input type="text" id="feedbackTitle" maxlength="150" placeholder="e.g. Add dark mode toggle or timer sound notification" required style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--bg-canvas); color: var(--text-primary); font-size: 13.5px; outline: none;">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 16px;">
+                                <label for="feedbackMessage">Message / Feedback *</label>
+                                <textarea id="feedbackMessage" rows="4" maxlength="2000" placeholder="Describe your suggestion, problem, or feedback in detail..." required style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: var(--bg-canvas); color: var(--text-primary); font-size: 13.5px; outline: none; resize: vertical;"></textarea>
+                                <div style="font-size: 11.5px; color: var(--text-muted); text-align: right; margin-top: 4px;">Max 2000 characters</div>
+                            </div>
+
+                            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                                <button type="reset" class="btn btn-secondary">Clear Form</button>
+                                <button type="submit" id="submitFeedbackBtn" class="btn">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                    Submit Feedback
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- User Feedback History Section -->
+                    <div style="margin-top: 32px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                            <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: var(--text-primary);">
+                                Your Feedback History
+                            </h3>
+                            <span id="feedbackCountBadge" style="font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: var(--radius-full); background: var(--border-subtle); color: var(--text-secondary);">
+                                0 submissions
+                            </span>
+                        </div>
+
+                        <div id="feedbackListContainer" style="display: flex; flex-direction: column; gap: 12px;">
+                            <!-- Dynamic items or empty state rendered via JavaScript -->
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px; display: flex; gap: 10px;">
+                        <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+                        <a href="tasks.html" class="btn">Go to Tasks →</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Required Service and App Scripts -->
+    <script src="services/apiClient.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="services/feedbackService.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Load feedback history on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStudentFeedbacks();
+        });
+
+        function showAlert(msg, isSuccess) {
+            const alertBox = document.getElementById('feedbackAlert');
+            if (!alertBox) return;
+            alertBox.textContent = msg;
+            alertBox.style.display = 'block';
+            if (isSuccess) {
+                alertBox.style.background = 'var(--sage-bg, rgba(74, 222, 128, 0.1))';
+                alertBox.style.color = 'var(--sage-text, #166534)';
+                alertBox.style.border = '1px solid var(--sage-border, rgba(74, 222, 128, 0.3))';
+            } else {
+                alertBox.style.background = 'rgba(239, 68, 68, 0.1)';
+                alertBox.style.color = '#991b1b';
+                alertBox.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+            }
+        }
+
+        async function loadStudentFeedbacks() {
+            const container = document.getElementById('feedbackListContainer');
+            const countBadge = document.getElementById('feedbackCountBadge');
+            if (!container) return;
+
+            try {
+                const feedbacks = await feedbackService.getFeedbacks();
+                if (countBadge) countBadge.textContent = `${feedbacks.length} submission${feedbacks.length === 1 ? '' : 's'}`;
+
+                if (!feedbacks || feedbacks.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state-box" style="padding: 36px 20px; text-align: center; background: var(--bg-canvas); border: 1px dashed var(--border-medium); border-radius: var(--radius-md);">
+                            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" style="margin: 0 auto 10px; color: var(--text-muted);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <h4 style="margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--text-primary);">No feedback submitted yet</h4>
+                            <p style="margin: 0; font-size: 12.5px; color: var(--text-secondary);">Your suggestions, feature requests, and bug reports will be listed here.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+                feedbacks.forEach(function(fb) {
+                    const dateStr = fb.createdAt ? new Date(fb.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+                    const typeColor = fb.type === 'Bug / Issue' ? 'color: #dc2626; background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.2);' :
+                                      fb.type === 'Feature Request' ? 'color: var(--lavender-text); background: var(--lavender-bg); border: 1px solid var(--lavender-border);' :
+                                      fb.type === 'Suggestion' ? 'color: var(--sage-text); background: var(--sage-bg); border: 1px solid var(--sage-border);' :
+                                      'color: var(--text-secondary); background: var(--border-subtle); border: 1px solid var(--border-medium);';
+
+                    const ratingDisplay = fb.rating ? ` • Rating: ${'★'.repeat(fb.rating)}${'☆'.repeat(5 - fb.rating)}` : '';
+
+                    html += `
+                        <div class="section-frame" style="padding: 16px 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                        <span style="font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm); ${typeColor}">
+                                            ${escapeHtml(fb.type)}
+                                        </span>
+                                        <h4 style="margin: 0; font-size: 14.5px; font-weight: 700; color: var(--text-primary);">
+                                            ${escapeHtml(fb.title)}
+                                        </h4>
+                                    </div>
+                                    <p style="margin: 8px 0 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5; white-space: pre-wrap;">
+                                        ${escapeHtml(fb.message)}
+                                    </p>
+                                </div>
+                                <button onclick="handleDeleteFeedback('${fb.id}')" aria-label="Delete feedback" style="background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px; border-radius: var(--radius-sm);" title="Delete submission">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </button>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 11.5px; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 8px;">
+                                <span>Status: <b style="text-transform: capitalize; color: var(--text-primary);">${escapeHtml(fb.status || 'submitted')}</b>${ratingDisplay}</span>
+                                <span>${dateStr}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+            } catch (err) {
+                console.error('Failed to load feedbacks:', err);
+                container.innerHTML = `
+                    <div style="padding: 16px; text-align: center; color: var(--text-muted); font-size: 13px;">
+                        Could not load feedback history. Please check your session.
+                    </div>
+                `;
+            }
+        }
+
+        async function handleFeedbackSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitFeedbackBtn');
+            const alertBox = document.getElementById('feedbackAlert');
+            if (alertBox) alertBox.style.display = 'none';
+
+            const type = document.getElementById('feedbackType').value;
+            const ratingVal = document.getElementById('feedbackRating').value;
+            const title = document.getElementById('feedbackTitle').value.trim();
+            const message = document.getElementById('feedbackMessage').value.trim();
+
+            if (!title || !message) {
+                showAlert('Please provide both a subject title and message.', false);
+                return;
+            }
+
+            const data = {
+                type: type,
+                title: title,
+                message: message,
+                rating: ratingVal ? parseInt(ratingVal, 10) : null
+            };
+
+            if (btn) btn.disabled = true;
+
+            try {
+                await feedbackService.createFeedback(data);
+                showAlert('Thank you! Your feedback has been submitted successfully.', true);
+                document.getElementById('feedbackForm').reset();
+                await loadStudentFeedbacks();
+            } catch (err) {
+                showAlert(err.message || 'Failed to submit feedback. Please try again.', false);
+            } finally {
+                if (btn) btn.disabled = false;
+            }
+        }
+
+        async function handleDeleteFeedback(id) {
+            if (!confirm('Are you sure you want to delete this feedback submission?')) return;
+            try {
+                await feedbackService.deleteFeedback(id);
+                await loadStudentFeedbacks();
+            } catch (err) {
+                alert('Failed to delete feedback: ' + (err.message || 'Server error'));
+            }
+        }
+    </script>
+</body>
+</html>
